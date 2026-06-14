@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Digite o nome do contado">
+    <p></p>
+    <button>Procurar contado</button>
+</body>
+
+<script>
+    let p = document.querySelector('p')
+    let input = document.querySelector('input')
+
+    const contado = [
+        {nome: 'Rodolfo', number: '(19) 94342-3434'},
+        {nome: 'Luna', number: '(12) 94342-3434'},
+        {nome: 'Maria', number: '(23) 94342-3434'},
+        {nome: 'Rodrigo', number: '(91) 94342-3434'},
+    ];
+
+    const Botao = document.querySelector('button');
+    Botao.addEventListener('click', function search() {
+        for (let i = 0; i < contado.length; i++) {
+            if (input.value.toLocaleLowerCase() === contado[i].nome.toLocaleLowerCase()) {
+                p.innerHTML = `Contato encontrado nome: ${contado[i].nome} e o telefone: ${contado[i].number}`
+
+                break
+            } else {
+                p.innerHTML = "Contato não encontrado, tente novamente"
+            }
+        }
+    })
+</script>
+</html>
